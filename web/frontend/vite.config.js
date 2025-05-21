@@ -1,21 +1,19 @@
+// web/frontend/vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  root: '.', // Корень проекта — текущая директория (/app/)
-  publicDir: 'public', // Путь к public относительно корня
-  build: {
-    outDir: 'dist', // Выходная директория
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        main: 'src/index.jsx', // Указываем путь относительно /app/
-      },
-    },
-  },
+  root: '.', // Ensure Vite uses the project root
+  publicDir: 'public', // Explicitly set the public directory
   server: {
-    host: true,
     port: 80,
+    host: '0.0.0.0',
+  },
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: '/public/index.html', // Explicitly specify the entry point
+    },
   },
 });

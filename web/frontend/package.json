@@ -1,21 +1,18 @@
 {
-  "name": "order-app-frontend",
+  "name": "restaurant-delivery-frontend",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.16.0",
-    "axios": "^1.6.0"
+    "react-router-dom": "^6.8.1",
+    "axios": "^1.3.4"
   },
   "devDependencies": {
-    "vite": "^5.4.8",
-    "@vitejs/plugin-react": "^4.3.2"
-  },
-  "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "vite": "^4.1.0",
+    "@vitejs/plugin-react": "^4.0.0"
   }
 }

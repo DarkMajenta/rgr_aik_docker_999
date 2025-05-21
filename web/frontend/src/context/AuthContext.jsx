@@ -1,36 +1,29 @@
 import { createContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const userData = localStorage.getItem('user');
-    if (token && userData) {
-      setUser(JSON.parse(userData));
+    if (token) {
+      axios.get('/api/auth/me', {
+        headers: { Authorization: `Bearer ${token}` }
+      }).then(res => setUser(res.data));
     }
   }, []);
 
-  const login = (token, userData) => {
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(userData));
-    setUser(userData);
-    if (userData.role === 'admin') {
-      navigate('/admin');
-    } else {
-      navigate('/restaurants');
-    }
+  const login = async (email, password) => {
+    const res = await axios.post('/api/auth/login', { email, password });
+    localStorage.setItem('token', res.data.access_token);
+    setUser(res.data.user);
   };
 
   const logout = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
     setUser(null);
-    navigate('/login');
   };
 
   return (
