@@ -10,7 +10,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: 'src/index.js', // Указываем путь относительно /app/
+        main: 'src/index.jsx', // Указываем путь относительно /app/
       },
     },
   },
