@@ -50,7 +50,7 @@ restaurant-delivery/
 ├── frontend/
 │   ├── public/
 │   ├── src/
-│   │   ├── App.tsx        ← Положи сюда сгенерированный файл
+│   │   ├── App.tsx        
 │   │   ├── index.tsx
 │   │   └── pages/         ← (опционально) вынести сюда отдельные страницы
 │   └── Dockerfile
