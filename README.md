@@ -40,6 +40,7 @@ Infrastructure
 Docker + Docker Compose
 Nginx (reverse proxy)
 
+```
 📂 Project Structure
 restaurant-delivery/
 ├── docker-compose.yml
@@ -127,6 +128,7 @@ restaurant-delivery/
 │   │       ├── cert.pem
 │   │       └── key.pem
 ├── README.md
+```
 
 🚀 Getting Started
 Prerequisites
