@@ -2,7 +2,7 @@
   "name": "order-app-frontend",
   "version": "1.0.0",
   "private": true,
-  "type": "module", // Добавлено для поддержки ES Modules
+  "type": "module",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
