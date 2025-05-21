@@ -55,26 +55,28 @@ restaurant-delivery/
 │   │   └── pages/         ← (опционально) вынести сюда отдельные страницы
 │   └── Dockerfile
 ├── backend/
-│    ├── controllers/
-│    │   ├── authController.js
-│    │   ├── dishController.js
-│    │   ├── orderController.js
-│    │   └── productController.js
-│    ├── middleware/
-│    │   └── auth.js
-│    ├── models/
-│    │   ├── order.js
-│    │   ├── product.js
-│    │   └── user.js
-│    ├── routes/
-│    │   ├── authRoutes.js
-│    │   ├── dishRoutes.js
-│    │   ├── orderRoutes.js
-│    │   └── productRoutes.js
-│    ├── db.js
-│    ├── index.js
-│    ├── package.json
-│    └── .env
+|   ├── src/
+│   ├── config/
+│   │   └── database.js
+│   ├── models/
+│   │   ├── user.js
+│   │   ├── client.js
+│   │   ├── order.js
+│   │   ├── orderItem.js
+│   │   ├── dish.js
+│   │   └── index.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── orders.js
+│   │   └── dishes.js
+│   ├── middleware/
+│   │   └── auth.js
+│   ├── services/
+│   │   └── redis.js
+│   ├── app.js
+|   ├── package.json
+|   ├── Dockerfile
+|   └── .env****
 │
 ├── db/
 └── nginx(???)/
