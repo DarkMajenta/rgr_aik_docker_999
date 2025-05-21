@@ -4,6 +4,8 @@ const redis = require('redis');
 const authRoutes = require('./routes/auth');
 const orderRoutes = require('./routes/orders');
 const dishRoutes = require('./routes/dishes');
+const restaurantRoutes = require('./routes/restaurants');
+const adminRoutes = require('./routes/admin');
 require('dotenv').config();
 
 const app = express();
@@ -24,6 +26,8 @@ redisClient.connect().catch(console.error);
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/dishes', dishRoutes);
+app.use('/api/restaurants', restaurantRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Запуск сервера
 const PORT = process.env.PORT || 3000;

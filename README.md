@@ -56,27 +56,32 @@ restaurant-delivery/
 │   └── Dockerfile
 ├── backend/
 |   ├── src/
-│   ├── config/
-│   │   └── database.js
-│   ├── models/
-│   │   ├── user.js
-│   │   ├── client.js
-│   │   ├── order.js
-│   │   ├── orderItem.js
-│   │   ├── dish.js
-│   │   └── index.js
-│   ├── routes/
-│   │   ├── auth.js
-│   │   ├── orders.js
-│   │   └── dishes.js
-│   ├── middleware/
-│   │   └── auth.js
-│   ├── services/
-│   │   └── redis.js
-│   ├── app.js
+|   │   ├── config/
+|   │   │   └── database.js
+|   │   ├── models/
+|   │   │   ├── user.js
+|   │   │   ├── client.js
+|   │   │   ├── order.js
+|   │   │   ├── orderItem.js
+|   │   │   ├── dish.js
+|   │   │   ├── restaurant.js
+|   │   │   ├── dishType.js
+|   │   │   ├── restaurantDish.js
+|   │   │   └── index.js
+|   │   ├── routes/
+|   │   │   ├── auth.js
+|   │   │   ├── orders.js
+|   │   │   ├── dishes.js
+|   │   │   ├── restaurants.js
+|   │   │   └── admin.js
+|   │   ├── middleware/
+|   │   │   └── auth.js
+|   │   ├── services/
+|   │   │   └── redis.js
+|   │   └── app.js
 |   ├── package.json
 |   ├── Dockerfile
-|   └── .env****
+|   └── .env
 │
 ├── db/
 └── nginx(???)/
