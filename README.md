@@ -159,11 +159,3 @@ Project Maintainer - [Drk Mjnt] - tg: @x0y1z2a3b4c5d6e7f8g9h0i1j2k9gsp0
 
 Project Link: [https://github.com/DarkMajenta/rgr_aik_docker_999](https://github.com/DarkMajenta/rgr_aik_docker_999)
 ```
-
-Key changes made:
-1. Added GPL-3.0 license badge at the top
-2. Updated the License section with specific GPL-3.0 requirements
-3. Kept the reference to the LICENSE file
-4. Maintained all other sections with their original content
-
-The README now clearly indicates the GPL-3.0 license while maintaining all other important project information.
