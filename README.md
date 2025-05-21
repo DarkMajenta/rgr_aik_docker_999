@@ -148,24 +148,28 @@ cd rgr_aik_docker_999
 Set Up Environment Variables:
 
 Copy the example environment files for frontend and backend
-```cp web/frontend/.env.example web/frontend/.env
+```
+cp web/frontend/.env.example web/frontend/.env
 cp web/backend/.env.example web/backend/.env
 ```
 
 Edit web/frontend/.env to set the API URL (default: VITE_API_URL=http://localhost:3000/api).
 Edit web/backend/.env to set:
+```
 DB_URL=postgres://admin:password@db:5432/app
 REDIS_URL=redis://redis:6379
 JWT_SECRET=your_jwt_secret_key (replace with a secure key).
-
+```
 
 
 
 Prepare SSL Certificates for Nginx (optional, for HTTPS):
 
-Generate self-signed certificates for development:mkdir -p web/nginx/ssl
+Generate self-signed certificates for development:
+```
+mkdir -p web/nginx/ssl
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout web/nginx/ssl/key.pem -out web/nginx/ssl/cert.pem -subj "/C=US/ST=State/L=City/O=Organization/OU=Unit/CN=localhost"
-
+```
 
 For production, use valid certificates from a trusted CA.
 
