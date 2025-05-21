@@ -140,15 +140,17 @@ Git for cloning the repository.
 Installation and Deployment
 
 Clone the Repository:
+```
 git clone https://github.com/DarkMajenta/rgr_aik_docker_999.git
 cd rgr_aik_docker_999
-
+```
 
 Set Up Environment Variables:
 
-Copy the example environment files for frontend and backend:cp web/frontend/.env.example web/frontend/.env
+Copy the example environment files for frontend and backend
+```cp web/frontend/.env.example web/frontend/.env
 cp web/backend/.env.example web/backend/.env
-
+```
 
 Edit web/frontend/.env to set the API URL (default: VITE_API_URL=http://localhost:3000/api).
 Edit web/backend/.env to set:
