@@ -1,22 +1,24 @@
-// controllers/orderController.js
-import Order from '../models/order.js';
+import db from '../db.js';
 
 export const createOrder = async (req, res) => {
+  const { user_id, items, total_price } = req.body;
+
+  // Заглушка: "платёж прошёл"
+  const paymentOk = true;
+
+  if (!paymentOk) {
+    return res.status(400).json({ message: 'Платёж отклонён' });
+  }
+
   try {
-    const { userId, items, total } = req.body;
+    const result = await db.query(
+      'INSERT INTO orders (user_id, items, total_price, status) VALUES ($1, $2, $3, $4) RETURNING *',
+      [user_id, JSON.stringify(items), total_price, 'paid']
+    );
 
-    // Заглушка для оплаты
-    const paymentSuccess = true; // Здесь могла быть интеграция с PayPal
-
-    if (!paymentSuccess) {
-      return res.status(400).json({ message: 'Оплата не прошла' });
-    }
-
-    const newOrder = new Order({ userId, items, total, status: 'Оплачен' });
-    await newOrder.save();
-
-    res.status(201).json(newOrder);
+    res.status(201).json(result.rows[0]);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ error: 'Ошибка при создании заказа' });
   }
 };

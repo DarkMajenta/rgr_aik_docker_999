@@ -67,9 +67,13 @@ CREATE TABLE users (
 
 CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    items JSONB NOT NULL,
+    total_price NUMERIC(10, 2) NOT NULL  DEFAULT 'pending',
+    status VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    client_id INT REFERENCES clients(id),
-    status order_status DEFAULT 'pending'
+    client_id INT REFERENCES clients(id)
 );
 
 CREATE TABLE IF NOT EXISTS order_items (
