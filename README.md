@@ -46,12 +46,17 @@ A full-stack web application for online food ordering and delivery management. B
 
 
 restaurant-delivery/
-├── frontend/          # React application
-├── backend/           # Node.js/Python API
-├── docker/            # Docker configurations
-├── nginx/             # Nginx configurations
-├── .github/workflows  # CI/CD pipelines
-└── README.md          # Project documentation
+├── docker-compose.yml
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── App.tsx        ← Положи сюда сгенерированный файл
+│   │   ├── index.tsx
+│   │   └── pages/         ← (опционально) вынести сюда отдельные страницы
+│   └── Dockerfile
+├── backend/
+├── db/
+└── nginx/
 
 
 ## 🚀 Getting Started
