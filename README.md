@@ -155,7 +155,7 @@ Key GPL-3.0 requirements:
 
 ## 📧 Contact
 
-Project Maintainer - [Your Name] - your.email@example.com
+Project Maintainer - [Drk Mjnt] - tg: @x0y1z2a3b4c5d6e7f8g9h0i1j2k9gsp0
 
 Project Link: [https://github.com/DarkMajenta/rgr_aik_docker_999](https://github.com/DarkMajenta/rgr_aik_docker_999)
 ```
