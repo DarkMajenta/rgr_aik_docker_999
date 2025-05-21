@@ -44,7 +44,7 @@ A full-stack web application for online food ordering and delivery management. B
 
 ## 📂 Project Structure
 
-```
+
 restaurant-delivery/
 ├── frontend/          # React application
 ├── backend/           # Node.js/Python API
@@ -52,7 +52,7 @@ restaurant-delivery/
 ├── nginx/             # Nginx configurations
 ├── .github/workflows  # CI/CD pipelines
 └── README.md          # Project documentation
-```
+
 
 ## 🚀 Getting Started
 
