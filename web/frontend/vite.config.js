@@ -3,14 +3,14 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  root: 'src', // Корень проекта теперь src/
-  publicDir: '../public', // Путь к public относительно src
+  root: '.', // Корень проекта — текущая директория (/app/)
+  publicDir: 'public', // Путь к public относительно корня
   build: {
-    outDir: '../dist', // Выходная директория относительно src
+    outDir: 'dist', // Выходная директория
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: './index.js', // Явно указываем точку входа
+        main: 'src/index.js', // Указываем путь относительно /app/
       },
     },
   },
