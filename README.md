@@ -47,13 +47,43 @@ A full-stack web application for online food ordering and delivery management. B
 
 restaurant-delivery/
 ├── docker-compose.yml
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── App.tsx        
-│   │   ├── index.tsx
-│   │   └── pages/         ← (опционально) вынести сюда отдельные страницы
-│   └── Dockerfile
+|    └──web/frontend/
+|       ├── public/
+|       │   ├── index.html
+|       │   └── favicon.ico
+|       ├── src/
+|       │   ├── components/
+|       │   │   ├── Header.jsx
+|       │   │   ├── Footer.jsx
+|       │   │   ├── LoginForm.jsx
+|       │   │   ├── RegisterForm.jsx
+|       │   │   ├── RestaurantList.jsx
+|       │   │   ├── DishList.jsx
+|       │   │   ├── OrderForm.jsx
+|       │   │   ├── OrderList.jsx
+|       │   │   ├── AdminDashboard.jsx
+|       │   │   ├── AdminRestaurantForm.jsx
+|       │   │   ├── AdminDishForm.jsx
+|       │   │   ├── AdminOrderList.jsx
+|       │   │   └── AdminUserList.jsx
+|       │   ├── pages/
+|       │   │   ├── Home.jsx
+|       │   │   ├── Login.jsx
+|       │   │   ├── Register.jsx
+|       │   │   ├── Restaurants.jsx
+|       │   │   ├── Dishes.jsx
+|       │   │   ├── Orders.jsx
+|       │   │   └── AdminPanel.jsx
+|       │   ├── context/
+|       │   │   └── AuthContext.jsx
+|       │   ├── services/
+|       │   │   └── api.js
+|       │   ├── App.jsx
+|       │   ├── index.js
+|       │   └── styles.css
+|       ├── package.json
+|       ├── Dockerfile
+|       └── .env
 ├── backend/
 |   ├── src/
 |   │   ├── config/
@@ -82,7 +112,6 @@ restaurant-delivery/
 |   ├── package.json
 |   ├── Dockerfile
 |   └── .env
-│
 ├── db/
 └── nginx(???)/
 
