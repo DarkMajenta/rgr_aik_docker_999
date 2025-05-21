@@ -91,8 +91,8 @@ restaurant-delivery/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/restaurant-delivery.git
-cd restaurant-delivery
+git clone https://github.com/DarkMajenta/rgr_aik_docker_999.git
+cd rgr_aik_docker_999
 ```
 
 2. Set up environment variables:
@@ -157,7 +157,7 @@ Key GPL-3.0 requirements:
 
 Project Maintainer - [Your Name] - your.email@example.com
 
-Project Link: [https://github.com/your-username/restaurant-delivery](https://github.com/your-username/restaurant-delivery)
+Project Link: [https://github.com/DarkMajenta/rgr_aik_docker_999](https://github.com/DarkMajenta/rgr_aik_docker_999)
 ```
 
 Key changes made:
