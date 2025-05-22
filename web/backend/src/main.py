@@ -1,8 +1,9 @@
+# web/backend/src/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .routes import auth, orders, dishes, restaurants, admin
-from .config.database import engine
-from .models import Base
+from src.routes import auth, orders, dishes, restaurants, admin
+from src.config.database import engine
+from src.models import Base
 
 app = FastAPI(title="Restaurant Delivery API")
 
