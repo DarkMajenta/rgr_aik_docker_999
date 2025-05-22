@@ -2,13 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from jose import jwt
-from google.auth.transport.requests import Request
-from google.oauth2 import id_token
 from app.core.config import settings
 from app.core.database import get_db
 from app.core.auth import get_current_user
 from app.models.user import User
-from app.schemas.user import UserCreate, Token
+from app.schemas.user import UserCreate, Token, User
 import redis
 import bcrypt
 
@@ -34,23 +32,6 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
     token = jwt.encode({"sub": user.id}, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
     redis_client.setex(f"session:{user.id}", 3600, token)
     return {"access_token": token, "token_type": "bearer"}
-
-@router.post("/oauth2/google", response_model=Token)
-async def google_login(token: str, db: Session = Depends(get_db)):
-    try:
-        idinfo = id_token.verify_oauth2_token(token, Request(), settings.GOOGLE_CLIENT_ID)
-        email = idinfo['email']
-        user = db.query(User).filter(User.email == email).first()
-        if not user:
-            user = User(email=email, password="google_oauth", role="client")
-            db.add(user)
-            db.commit()
-            db.refresh(user)
-        jwt_token = jwt.encode({"sub": user.id}, settings.JWT_SECRET, algorithm=settings.JWT_ALGORITHM)
-        redis_client.setex(f"session:{user.id}", 3600, jwt_token)
-        return {"access_token": jwt_token, "token_type": "bearer"}
-    except ValueError:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid Google token")
 
 @router.get("/me", response_model=User)
 async def get_current_user_info(current_user: User = Depends(get_current_user)):
