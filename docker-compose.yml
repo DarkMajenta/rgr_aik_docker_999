@@ -1,9 +1,10 @@
-# docker-compose.yml
 version: '3.8'
 
 services:
   frontend:
-    build: ./web/frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "80:80"
     depends_on:
@@ -16,18 +17,18 @@ services:
       timeout: 5s
       retries: 5
       start_period: 10s
-    environment:
-      - VITE_API_URL=http://backend:3000/api
 
   backend:
-    build: ./web/backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     environment:
       - DB_URL=postgres://admin:password@db:5432/app
       - REDIS_URL=redis://redis:6379
     env_file:
-      - ./web/backend/.env
+      - ./backend/.env
     depends_on:
       - db
       - redis
@@ -44,8 +45,7 @@ services:
     image: postgres:15
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./web/db/init:/docker-entrypoint-initdb.d
-      - ./web/db/init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=password
