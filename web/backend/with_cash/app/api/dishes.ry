@@ -1,0 +1,19 @@
+from fastapi import APIRouter, Depends
+from sqlalchemy.orm import Session
+from app.core.database import get_db
+from app.models.dish import Dish
+from app.schemas.dish import Dish
+import redis
+import json
+
+router = APIRouter()
+redis_client = redis.Redis.from_url(settings.REDIS_URL)
+
+@router.get("/", response_model=list[Dish])
+async def get_menu(db: Session = Depends(get_db)):
+    cached = redis_client.get("menu")
+    if cached:
+        return json.loads(cached)
+    dishes = db.query(Dish).all()
+    redis_client.setex("menu", 3600, json.dumps([dish.__dict__ for dish in dishes]))
+    return dishes
