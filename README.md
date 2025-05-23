@@ -1,4 +1,8 @@
-🍽️ Restaurant Delivery Web Application
+# 🍽️ Restaurant Delivery Web Application
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+A full-stack web application for online food ordering and delivery management, providing a seamless experience for customers and administrators.
 
 A full-stack web application for online food ordering and delivery management, providing a seamless experience for customers and administrators.
 🌟 Features
